@@ -11,7 +11,7 @@ import {
   IonTabButton,
   IonTabs
 } from '@ionic/react';
-import { apps, flash, send } from 'ionicons/icons';
+import { apps, flash, send, aperture } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -40,15 +40,16 @@ const App: React.FunctionComponent = () => (
         <IonTabs>
           <IonRouterOutlet>
             <Route path="/:tab(tab1)" component={Tab1} exact={true} />
-            <Route path="/:tab(tab2)" component={Tab2} exact={true} />
+            <Route path="/:tab(tab1)/details/:data" component={Details} exact={true} />
             <Route path="/:tab(tab2)/details" component={Details} />
             <Route path="/:tab(tab3)" component={Tab3} />
             <Route exact path="/" render={() => <Redirect to="/tab1" />} />
           </IonRouterOutlet>
+
           <IonTabBar slot="bottom">
             <IonTabButton tab="schedule" href="/tab1">
-              <IonIcon icon={flash} />
-              <IonLabel>Tab One</IonLabel>
+              <IonIcon icon={aperture} />
+              <IonLabel>Matchdays</IonLabel>
             </IonTabButton>
             <IonTabButton tab="speakers" href="/tab2">
               <IonIcon icon={apps} />
